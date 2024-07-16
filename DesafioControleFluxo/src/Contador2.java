@@ -1,7 +1,6 @@
 import java.util.Scanner;
 
 public class Contador2 {
-    public class Contador {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Digite o primeiro parâmetro: ");
@@ -13,7 +12,7 @@ public class Contador2 {
 			//chamando o método contendo a lógica de contagem
 			contar(parametroUm, parametroDois);
 		
-		}catch (ParametrosInvalidosException) {
+		}catch(Exception e) {
 			System.out.println("O segundo parâmetro tem que ser maior que o primeiro");
 		}
 		
@@ -21,8 +20,15 @@ public class Contador2 {
 	static void contar(int parametroUm, int parametroDois ) throws ParametrosInvalidosException {
 		//validar se parametroUm é MAIOR que parametroDois e lançar a exceção
 		
+		if (parametroDois < parametroUm){
+			throw new ParametrosInvalidosException();
+		}
 		int contagem = parametroDois - parametroUm;
+		
 		//realizar o for para imprimir os números com base na variável contagem
+		for (int i = 0; i <= contagem; i++){
+			System.out.println("Contagem: " + i);
+		}
 	}
 }
-}
+
